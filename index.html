@@ -17,7 +17,28 @@
 			<!-- <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> - equirectangular panorama demo with DeviceOrientation controls.<br/>
 			photo by <a href="http://www.flickr.com/photos/jonragnarsson/2294472375/" target="_blank" rel="noopener">Jón Ragnarsson</a>. -->
             <p>Room Verification Tool - Rotate your device to record a full 360 degree view of the room</p>
-        </div>
+		</div>
+		<div class="main">
+            <h2>Device Orientation</h2>
+            <table>
+              <tr>
+                <td>Event Supported</td>
+                <td id="doEvent"></td>
+              </tr>
+              <tr>
+                <td>Tilt Left/Right [gamma]</td>
+                <td id="doTiltLR"></td>
+              </tr>
+              <tr>
+                <td>Tilt Front/Back [beta]</td>
+                <td id="doTiltFB"></td>
+              </tr>
+              <tr>
+                <td>Direction [alpha]</td>
+                <td id="doDirection"></td>
+              </tr>
+             </table>
+          </div>
 
 		<script type="module">
 
