@@ -1,126 +1,201 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 	<head>
-		<title>three.js webgl - controls - deviceorientation</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link type="text/css" rel="stylesheet" href="main.css">
-		<link type="text/css" rel="stylesheet" href="format.css">
+        <meta charset="UTF-8">
+        <title>ExerQuiz</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="style.css">
+		<style>
+			body { margin: 0; }
+			canvas { display: block; }
+            h1 {margin: 10px;}
+		</style>
 	</head>
 	<body>
-		<div id="overlay">
-			<div>
-				<button id="startButton">Start</button>
-				<p>Using device orientation might require a user interaction.</p>
-			</div>
-		</div>
-		<div id="wrapper">
-			<div id="info">
-				<!-- <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> - equirectangular panorama demo with DeviceOrientation controls.<br/>
-				photo by <a href="http://www.flickr.com/photos/jonragnarsson/2294472375/" target="_blank" rel="noopener">Jón Ragnarsson</a>. -->
-				<p>Room Verification Tool - Rotate your device to record a full 360 degree view of the room</p>
-			</div>
-			<div id="infotable">
-				<!-- <h2>Device Orientation</h2> -->
-				<table>
-				<tr>
-					<td>Event Supported</td>
-					<td id="doEvent"></td>
-				</tr>
-				<tr>
-					<td>Tilt Left/Right [gamma]</td>
-					<td id="doTiltLR"></td>
-				</tr>
-				<tr>
-					<td>Tilt Front/Back [beta]</td>
-					<td id="doTiltFB"></td>
-				</tr>
-				<tr>
-					<td>Direction [alpha]</td>
-					<td id="doDirection"></td>
-				</tr>
-				</table>
-			</div>
-		</div>
+        <div class="header">
+            <h1>Room Verification Tool - Rotate your device to record a full 360 degree view of the room</h1>
+        </div>
+        <!-- <button onclick="requestOrientationPermission();">Request Orientation Permission</button> -->
+        <div class="main">
+            <h2>Device Orientation</h2>
+            <table>
+              <tr>
+                <td>Event Supported</td>
+                <td id="doEvent"></td>
+              </tr>
+              <tr>
+                <td>Tilt Left/Right [gamma]</td>
+                <td id="doTiltLR"></td>
+              </tr>
+              <tr>
+                <td>Tilt Front/Back [beta]</td>
+                <td id="doTiltFB"></td>
+              </tr>
+              <tr>
+                <td>Direction [alpha]</td>
+                <td id="doDirection"></td>
+              </tr>
+             </table>
+          </div>
+          <div class="main2" style="display: none;">
+            <h2>Device Motion</h2>
+            <table>
+              <tr>
+                <td>Event Supported</td>
+                <td id="doEventMotion"></td>
+              </tr>
+              <tr>
+                <td>xAcceleration (m/s^2)</td>
+                <td id="xMotion"></td>
+              </tr>
+              <tr>
+                <td>yAcceleration (m/s^2)</td>
+                <td id="yMotion"></td>
+              </tr>
+              <tr>
+                <td>zAcceleration (m/s^2)</td>
+                <td id="zMotion"></td>
+              </tr>
+             </table>
+          </div>
+          <!-- <div class="container" style="perspective: 300;">
+            <img src="monashlogo.jpg" id="imgLogo" class="logo"> -->
+          </div>
+          <br>
+          <div class="split left" id="truepanel">
+            <div class="centered">
+              <h2>True</h2>
+            </div>
+          </div>
+          <div class="split right" id="falsepanel">
+              <div class="centered">
+                  <h2>False</h2>
+              </div>
+          </div>
+          <br>
+        <script>
+            function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration){
+              document.getElementById("xMotion").innerHTML = Math.round(xAcceleration);
+              document.getElementById("yMotion").innerHTML = Math.round(yAcceleration);
+              document.getElementById("zMotion").innerHTML = Math.round(zAcceleration);
+            }
 
-		<script type="module">
+            function selectionAccelerationHandler(xAcceleration, yAcceleration, zAcceleration){
+              if ( xAcceleration < -20) {
+                var falsepanel = document.getElementById("falsepanel");
+                falsepanel.style.backgroundColor = "yellow";
+                var truepanel = document.getElementById("truepanel");
+                truepanel.style.backgroundColor = "lightblue";
+              } else if (xAcceleration > 20) {
+                var truepanel = document.getElementById("truepanel");
+                truepanel.style.backgroundColor = "yellow";
+                var falsepanel = document.getElementById("falsepanel");
+                falsepanel.style.backgroundColor = "lightblue";
+              }
+              else{
 
-			// import * as THREE from '../build/three.module.js';
-            import * as THREE from './Scripts/three.module.js';
+              }
+            }
 
-			// import { DeviceOrientationControls } from './jsm/controls/DeviceOrientationControls.js';
-            import { DeviceOrientationControls } from './Scripts/DeviceOrientationControls.js';
+            function selectionGammaHandler(tiltLR){
+              if ( tiltLR > 0) {
+                var falsepanel = document.getElementById("falsepanel");
+                falsepanel.style.backgroundColor = "yellow";
+                var truepanel = document.getElementById("truepanel");
+                truepanel.style.backgroundColor = "lightblue";
+              } else{
+                var truepanel = document.getElementById("truepanel");
+                truepanel.style.backgroundColor = "yellow";
+                var falsepanel = document.getElementById("falsepanel");
+                falsepanel.style.backgroundColor = "lightblue";
+              }
+            }
 
-			var camera, scene, renderer, controls;
+            function deviceOrientationHandler(tiltLR, tiltFB, dir){
+                document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
+                document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
+                document.getElementById("doDirection").innerHTML = Math.round(dir);
+            }
 
-			var startButton = document.getElementById( 'startButton' );
-			startButton.addEventListener( 'click', function () {
+            // const id = setTimeout(() => {
+            //   document.getElementById('nodeviceorientation').style.display = 'block'
+            // }, 500);
+            // window.addEventListener('deviceorientation', (e) => clearTimeout(id));
+            // alert( DeviceOrientationEvent == undefined );
+            // alert( typeof(DeviceOrientationEvent.requestPermission) === "function" );
 
-				init();
-				animate();
+            // function requestOrientationPermission() {
+            //   // alert( typeof DeviceMotionEvent.requestPermission === 'function' );
+            //   if ( window.DeviceMotionEvent !== undefined && typeof window.DeviceMotionEvent.requestPermission === 'function' ) {
+            //       window.DeviceMotionEvent.requestPermission().then(permissionState => {
+            //       alert("Motion access status: " + permissionState);
+            //       if (permissionState === 'granted') {
+            //         window.addEventListener('devicemotion', () => {});
+            //       }
+            //     }).catch(error => {
+            //       alert(error);
+            //     });
+            //   }
+              
+              alert( Object.getOwnPropertyNames(DeviceOrientationEvent) );
+              if ( window.DeviceOrientationEvent !== undefined && typeof window.DeviceOrientationEvent.requestPermission === 'function' ) {
+            //   if ( true ) {
+                window.DeviceOrientationEvent.requestPermission().then(response => {
+                alert("Orientation access status: " + response);
+                if (response == 'granted') {
+                    if (window.DeviceOrientationEvent) {
+                    console.log("DeviceOrientation is supported.");
+                    // window.addEventListener('deviceorientation', deviceOrientationHandler, false);
+                    // document.getElementById("doeSupported").innerText = "Supported!";
+                    document.getElementById("doEvent").innerHTML = "DeviceOrientation";
+                    // Listen for the deviceorientation event and handle the raw data
+                    window.addEventListener('deviceorientation', function(eventData) {
+                        // gamma is the left-to-right tilt in degrees, where right is positive
+                        var tiltLR = eventData.gamma;
 
-			}, false );
+                        // beta is the front-to-back tilt in degrees, where front is positive
+                        var tiltFB = eventData.beta;
 
-			function init() {
+                        // alpha is the compass direction the device is facing in degrees
+                        var dir = eventData.alpha
 
-				var overlay = document.getElementById( 'overlay' );
-				overlay.remove();
+                        // call our orientation event handler
+                        deviceOrientationHandler(tiltLR, tiltFB, dir);
 
-				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1100 );
+                        // call selection handler
+                        // selectionGammaHandler(tiltLR);
+                    }, false);
+                    } else {
+                        document.getElementById("doEvent").innerHTML = "Not supported."
+                    } 
+                }
+              })
+              .catch(error => {
+                alert(error);
+              })
+          //   }
+		  }
+		  
+          if (window.DeviceMotionEvent) {
+            window.addEventListener('devicemotion', function(eventData) {
 
-				controls = new DeviceOrientationControls( camera );
+              document.getElementById("doEventMotion").innerHTML = "DeviceMotion";
 
-				// scene = new THREE.Scene();
+              var xAcceleration = eventData.accelerationIncludingGravity.x;
 
-				// var geometry = new THREE.SphereBufferGeometry( 500, 60, 40 );
-				// // invert the geometry on the x-axis so that all of the faces point inward
-				// geometry.scale( - 1, 1, 1 );
+              var yAcceleration = eventData.accelerationIncludingGravity.y;
 
-				// var material = new THREE.MeshBasicMaterial( {
-				// 	// map: new THREE.TextureLoader().load( 'textures/2294472375_24a3b8ef46_o.jpg' )
-                //     map: new THREE.TextureLoader().load( 'monash.jpg' )
-				// } );
+              var zAcceleration = eventData.accelerationIncludingGravity.z;
 
-				// var mesh = new THREE.Mesh( geometry, material );
-				// scene.add( mesh );
+              // call our orientation event handler
+              deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration);
 
-				// var helperGeometry = new THREE.BoxBufferGeometry( 100, 100, 100, 4, 4, 4 );
-				// var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xff00ff, wireframe: true } );
-				// var helper = new THREE.Mesh( helperGeometry, helperMaterial );
-				// scene.add( helper );
-
-				
-
-				// renderer = new THREE.WebGLRenderer( { antialias: true } );
-				// renderer.setPixelRatio( window.devicePixelRatio );
-				// renderer.setSize( window.innerWidth, window.innerHeight );
-				// document.body.appendChild( renderer.domElement );
-
-				// //
-
-				// window.addEventListener( 'resize', onWindowResize, false );
-
-
-			}
-
-			function animate() {
-
-				window.requestAnimationFrame( animate );
-
-				controls.update();
-				// renderer.render( scene, camera );
-
-			}
-
-			// function onWindowResize() {
-
-			// 	camera.aspect = window.innerWidth / window.innerHeight;
-			// 	camera.updateProjectionMatrix();
-
-			// 	renderer.setSize( window.innerWidth, window.innerHeight );
-
-			// }
-
-		</script>
+              // call selection handler
+              selectionAccelerationHandler(xAcceleration, yAcceleration, zAcceleration);
+          }, false);
+        } else {
+              document.getElementById("doEventMotion").innerHTML = "Not supported."
+          } 
+        </script>
 	</body>
 </html>
