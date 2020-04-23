@@ -5,7 +5,7 @@
         <title>RoomVer</title>
         <meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<script src="Scripts/DeviceOrientationHandler.js"></script>
+		<script type="text/javascript" src="Scripts/DeviceOrientationHandler.js"></script>
 		<style>
 			body { margin: 0; }
 			canvas { display: block; }
@@ -48,8 +48,10 @@
         <script>
            	var startButton = document.getElementById( 'startButton' );
 			startButton.addEventListener( 'click', function () {
+				requestOrientationPermission();
 				init();
 				animate();
+
 			}, false );
 
 			function init(){
