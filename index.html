@@ -49,11 +49,16 @@
            	var startButton = document.getElementById( 'startButton' );
 			startButton.addEventListener( 'click', function () {
 				init();
+				animate();
 			}, false );
 
 			function init(){
 				var overlay = document.getElementById( 'overlay' );
 				overlay.remove();
+			}
+
+			function animate() {
+				window.requestAnimationFrame( animate );
 			}
         </script>
 	</body>
