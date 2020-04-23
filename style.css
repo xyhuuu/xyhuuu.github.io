@@ -1,10 +1,13 @@
 .infotable {
     height: 10em;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 p {
     text-align: center;
+    margin: 10;
 }
 
 h1{
