@@ -13,11 +13,12 @@
 	</head>
 	<body>
         <div class="header">
-            <h1>Room Verification Tool - Rotate your device to record a full 360 degree view of the room</h1>
+			<h1>Room Verification Tool</h1>
+			<p>- Rotate your device to record a full 360 degree view of the room</p>
         </div>
         <!-- <button onclick="requestOrientationPermission();">Request Orientation Permission</button> -->
         <div class="main">
-            <h2>Device Orientation</h2>
+            <!-- <h2>Device Orientation</h2> -->
             <table>
               <tr>
                 <td>Event Supported</td>
@@ -35,167 +36,52 @@
                 <td>Direction [alpha]</td>
                 <td id="doDirection"></td>
               </tr>
-             </table>
-          </div>
-          <div class="main2" style="display: none;">
-            <h2>Device Motion</h2>
-            <table>
-              <tr>
-                <td>Event Supported</td>
-                <td id="doEventMotion"></td>
-              </tr>
-              <tr>
-                <td>xAcceleration (m/s^2)</td>
-                <td id="xMotion"></td>
-              </tr>
-              <tr>
-                <td>yAcceleration (m/s^2)</td>
-                <td id="yMotion"></td>
-              </tr>
-              <tr>
-                <td>zAcceleration (m/s^2)</td>
-                <td id="zMotion"></td>
-              </tr>
-             </table>
-          </div>
-          <!-- <div class="container" style="perspective: 300;">
-            <img src="monashlogo.jpg" id="imgLogo" class="logo"> -->
-          </div>
-          <br>
-          <div class="split left" id="truepanel">
-            <div class="centered">
-              <h2>True</h2>
-            </div>
-          </div>
-          <div class="split right" id="falsepanel">
-              <div class="centered">
-                  <h2>False</h2>
-              </div>
-          </div>
-          <br>
+            </table>
+        </div>
         <script>
-            function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration){
-              document.getElementById("xMotion").innerHTML = Math.round(xAcceleration);
-              document.getElementById("yMotion").innerHTML = Math.round(yAcceleration);
-              document.getElementById("zMotion").innerHTML = Math.round(zAcceleration);
-            }
-
-            function selectionAccelerationHandler(xAcceleration, yAcceleration, zAcceleration){
-              if ( xAcceleration < -20) {
-                var falsepanel = document.getElementById("falsepanel");
-                falsepanel.style.backgroundColor = "yellow";
-                var truepanel = document.getElementById("truepanel");
-                truepanel.style.backgroundColor = "lightblue";
-              } else if (xAcceleration > 20) {
-                var truepanel = document.getElementById("truepanel");
-                truepanel.style.backgroundColor = "yellow";
-                var falsepanel = document.getElementById("falsepanel");
-                falsepanel.style.backgroundColor = "lightblue";
-              }
-              else{
-
-              }
-            }
-
-            function selectionGammaHandler(tiltLR){
-              if ( tiltLR > 0) {
-                var falsepanel = document.getElementById("falsepanel");
-                falsepanel.style.backgroundColor = "yellow";
-                var truepanel = document.getElementById("truepanel");
-                truepanel.style.backgroundColor = "lightblue";
-              } else{
-                var truepanel = document.getElementById("truepanel");
-                truepanel.style.backgroundColor = "yellow";
-                var falsepanel = document.getElementById("falsepanel");
-                falsepanel.style.backgroundColor = "lightblue";
-              }
-            }
-
             function deviceOrientationHandler(tiltLR, tiltFB, dir){
                 document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
                 document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
                 document.getElementById("doDirection").innerHTML = Math.round(dir);
             }
 
-            // const id = setTimeout(() => {
-            //   document.getElementById('nodeviceorientation').style.display = 'block'
-            // }, 500);
-            // window.addEventListener('deviceorientation', (e) => clearTimeout(id));
-            // alert( DeviceOrientationEvent == undefined );
-            // alert( typeof(DeviceOrientationEvent.requestPermission) === "function" );
-
-            // function requestOrientationPermission() {
-            //   // alert( typeof DeviceMotionEvent.requestPermission === 'function' );
-            //   if ( window.DeviceMotionEvent !== undefined && typeof window.DeviceMotionEvent.requestPermission === 'function' ) {
-            //       window.DeviceMotionEvent.requestPermission().then(permissionState => {
-            //       alert("Motion access status: " + permissionState);
-            //       if (permissionState === 'granted') {
-            //         window.addEventListener('devicemotion', () => {});
-            //       }
-            //     }).catch(error => {
-            //       alert(error);
-            //     });
-            //   }
-              
-              alert( Object.getOwnPropertyNames(DeviceOrientationEvent) );
-              if ( window.DeviceOrientationEvent !== undefined && typeof window.DeviceOrientationEvent.requestPermission === 'function' ) {
-            //   if ( true ) {
+            // alert( Object.getOwnPropertyNames(DeviceOrientationEvent) );
+            if ( window.DeviceOrientationEvent !== undefined && typeof window.DeviceOrientationEvent.requestPermission === 'function' ) {
                 window.DeviceOrientationEvent.requestPermission().then(response => {
-                alert("Orientation access status: " + response);
-                if (response == 'granted') {
-                    if (window.DeviceOrientationEvent) {
-                    console.log("DeviceOrientation is supported.");
-                    // window.addEventListener('deviceorientation', deviceOrientationHandler, false);
-                    // document.getElementById("doeSupported").innerText = "Supported!";
-                    document.getElementById("doEvent").innerHTML = "DeviceOrientation";
-                    // Listen for the deviceorientation event and handle the raw data
-                    window.addEventListener('deviceorientation', function(eventData) {
-                        // gamma is the left-to-right tilt in degrees, where right is positive
-                        var tiltLR = eventData.gamma;
+                // alert("Orientation access status: " + response);
+					if (response == 'granted') {
+						if (window.DeviceOrientationEvent) {
+						console.log("DeviceOrientation is supported.");
+						// window.addEventListener('deviceorientation', deviceOrientationHandler, false);
+						// document.getElementById("doeSupported").innerText = "Supported!";
+						document.getElementById("doEvent").innerHTML = "DeviceOrientation";
+						// Listen for the deviceorientation event and handle the raw data
+						window.addEventListener('deviceorientation', function(eventData) {
+							// gamma is the left-to-right tilt in degrees, where right is positive
+							var tiltLR = eventData.gamma;
 
-                        // beta is the front-to-back tilt in degrees, where front is positive
-                        var tiltFB = eventData.beta;
+							// beta is the front-to-back tilt in degrees, where front is positive
+							var tiltFB = eventData.beta;
 
-                        // alpha is the compass direction the device is facing in degrees
-                        var dir = eventData.alpha
+							// alpha is the compass direction the device is facing in degrees
+							var dir = eventData.alpha
 
-                        // call our orientation event handler
-                        deviceOrientationHandler(tiltLR, tiltFB, dir);
+							// call our orientation event handler
+							deviceOrientationHandler(tiltLR, tiltFB, dir);
 
-                        // call selection handler
-                        // selectionGammaHandler(tiltLR);
-                    }, false);
-                    } else {
-                        document.getElementById("doEvent").innerHTML = "Not supported."
-                    } 
-                }
-              })
-              .catch(error => {
-                alert(error);
-              })
-          //   }
-		  }
-		  
-          if (window.DeviceMotionEvent) {
-            window.addEventListener('devicemotion', function(eventData) {
+							// call selection handler
+							// selectionGammaHandler(tiltLR);
+						}, false);
+						} else {
+							document.getElementById("doEvent").innerHTML = "Not supported."
+						} 
+					}
+              	})
+              	.catch(error => {
+                	alert(error);
+              	})
+		  	}
 
-              document.getElementById("doEventMotion").innerHTML = "DeviceMotion";
-
-              var xAcceleration = eventData.accelerationIncludingGravity.x;
-
-              var yAcceleration = eventData.accelerationIncludingGravity.y;
-
-              var zAcceleration = eventData.accelerationIncludingGravity.z;
-
-              // call our orientation event handler
-              deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration);
-
-              // call selection handler
-              selectionAccelerationHandler(xAcceleration, yAcceleration, zAcceleration);
-          }, false);
-        } else {
-              document.getElementById("doEventMotion").innerHTML = "Not supported."
-          } 
         </script>
 	</body>
 </html>
