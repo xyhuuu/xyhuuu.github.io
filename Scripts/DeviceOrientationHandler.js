@@ -26,8 +26,6 @@ function requestOrientationPermission() {
                     // call our orientation event handler
                     deviceOrientationHandler(tiltLR, tiltFB, dir);
     
-                    // call selection handler
-                    // selectionGammaHandler(tiltLR);
                 }, false);
                 } else {
                     document.getElementById("doEvent").innerHTML = "Not supported."
