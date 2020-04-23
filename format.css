@@ -5,3 +5,9 @@
     width:auto;
     float:left;
 }
+
+#infotable { 
+    float:left; 
+    width:200px; 
+    clear:both;
+    }
