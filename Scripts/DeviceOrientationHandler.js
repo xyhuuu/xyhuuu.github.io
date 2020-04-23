@@ -1,7 +1,7 @@
 function deviceOrientationHandler(tiltLR, tiltFB, dir){
-    document.getElementById("doTiltLR") = Math.round(tiltLR);
-    document.getElementById("doTiltFB") = Math.round(tiltFB);
-    document.getElementById("doDirection") = Math.round(dir);
+    document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
+    document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
+    document.getElementById("doDirection").innerHTML = Math.round(dir);
 }
 
 function requestOrientationPermission() {
@@ -11,7 +11,7 @@ function requestOrientationPermission() {
         if (permissionState === 'granted') {
             if (window.DeviceOrientationEvent) {
                 console.log("DeviceOrientation is supported.");
-                document.getElementById("doEvent") = "DeviceOrientation";
+                document.getElementById("doEvent").innerHTML = "DeviceOrientation";
                 // Listen for the deviceorientation event and handle the raw data
                 window.addEventListener('deviceorientation', function(eventData) {
                     // gamma is the left-to-right tilt in degrees, where right is positive
@@ -30,7 +30,7 @@ function requestOrientationPermission() {
                     // selectionGammaHandler(tiltLR);
                 }, false);
                 } else {
-                    document.getElementById("doEvent") = "Not supported."
+                    document.getElementById("doEvent").innerHTML = "Not supported."
                 } 
         }
     }).catch(error => {
