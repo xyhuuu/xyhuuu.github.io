@@ -1,7 +1,7 @@
 function deviceOrientationHandler(tiltLR, tiltFB, dir){
-    document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
-    document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
-    document.getElementById("doDirection").innerHTML = Math.round(dir);
+    document.getElementById("doTiltLR") = Math.round(tiltLR);
+    document.getElementById("doTiltFB") = Math.round(tiltFB);
+    document.getElementById("doDirection") = Math.round(dir);
 }
 
 // alert( Object.getOwnPropertyNames(DeviceOrientationEvent) );
@@ -13,7 +13,7 @@ if ( window.DeviceOrientationEvent !== undefined && typeof window.DeviceOrientat
             console.log("DeviceOrientation is supported.");
             // window.addEventListener('deviceorientation', deviceOrientationHandler, false);
             // document.getElementById("doeSupported").innerText = "Supported!";
-            document.getElementById("doEvent").innerHTML = "DeviceOrientation";
+            document.getElementById("doEvent") = "DeviceOrientation";
             // Listen for the deviceorientation event and handle the raw data
             window.addEventListener('deviceorientation', function(eventData) {
                 // gamma is the left-to-right tilt in degrees, where right is positive
