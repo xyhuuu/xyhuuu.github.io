@@ -89,14 +89,14 @@
 				// var helper = new THREE.Mesh( helperGeometry, helperMaterial );
 				// scene.add( helper );
 
-				// //
+				//
 
-				// renderer = new THREE.WebGLRenderer( { antialias: true } );
-				// renderer.setPixelRatio( window.devicePixelRatio );
-				// renderer.setSize( window.innerWidth, window.innerHeight );
-				// document.body.appendChild( renderer.domElement );
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.body.appendChild( renderer.domElement );
 
-				// //
+				//
 
 				window.addEventListener( 'resize', onWindowResize, false );
 
