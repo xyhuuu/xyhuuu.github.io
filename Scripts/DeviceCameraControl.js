@@ -10,7 +10,7 @@ const cameraView = document.querySelector("#camera--view"),
 // Access the device camera and stream to cameraView
 function cameraStart() {
     navigator.permissions.query({name:'camera'}).then(function(result) {
-        alert("result: " + result.state);
+        alert(result.state);
         if (result.state == 'granted') {
             // alert("media Devices: " + 'mediaDevices' in navigator);
             // alert("'getUserMedia' in navigator.mediaDevices: " + 'getUserMedia' in navigator.mediaDevices)
@@ -26,6 +26,7 @@ function cameraStart() {
                 });
             // }
         }
+
     });
 }
 
@@ -38,4 +39,4 @@ cameraTrigger.onclick = function() {
     cameraOutput.classList.add("taken");
 };
 // Start the video stream when the window loads
-window.addEventListener("load", cameraStart, false);
+// window.addEventListener("load", cameraStart, false);
