@@ -34,7 +34,7 @@ h1{
 	text-align: center;
 }
 
-#overlay > div > button, #camera--trigger {
+#overlay > div > button {
 	height: 20px;
 	background: transparent;
 	color: #ffffff;
@@ -88,6 +88,14 @@ body {
     bottom: 30px;
     left: calc(50% - 100px);
 } */
+#camera--trigger{
+    height: 20px;
+	background: transparent;
+	color: #000000;
+	outline: 1px solid #000000;
+	border: 0px;
+	cursor: pointer;
+}
 .taken{
     height: 100px!important;
     width: 100px!important;
