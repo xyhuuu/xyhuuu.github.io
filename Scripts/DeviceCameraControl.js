@@ -9,12 +9,12 @@ const cameraView = document.querySelector("#camera--view"),
 
 // Access the device camera and stream to cameraView
 function cameraStart() {
-    navigator.permissions.query({name:'camera'}).then(function(result) {
-        alert(result.state);
-        if (result.state == 'granted') {
+    // navigator.permissions.query({name:'camera'}).then(function(result) {
+    //     alert(result.state);
+    //     if (result.state == 'granted') {
             // alert("media Devices: " + 'mediaDevices' in navigator);
             // alert("'getUserMedia' in navigator.mediaDevices: " + 'getUserMedia' in navigator.mediaDevices)
-            // if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices){ 
+            if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices){ 
                 navigator.mediaDevices
                     .getUserMedia(constraints)
                     .then(function(stream) {
@@ -24,10 +24,10 @@ function cameraStart() {
                 .catch(function(error) {
                     console.error("Oops", error);
                 });
-            // }
-        }
+            }
+    //     }
 
-    });
+    // });
 }
 
 // Take a picture when cameraTrigger is tapped
