@@ -90,11 +90,16 @@ body {
 } */
 #camera--trigger{
     height: 20px;
-	background: transparent;
-	color: #000000;
-	outline: 1px solid #000000;
+	background: black;
+	color: #ffffff;
+	outline: 1px solid #ffffff;
 	border: 0px;
-	cursor: pointer;
+    cursor: pointer;
+    text-align: center;
+    bottom: 30px;
+    left: calc(50% - 100px);
+    width: 200px;
+    position: fixed;
 }
 .taken{
     height: 100px!important;
