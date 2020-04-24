@@ -34,7 +34,7 @@ h1{
 	text-align: center;
 }
 
-#overlay > div > button {
+#overlay > div > button, #camera--trigger {
 	height: 20px;
 	background: transparent;
 	color: #ffffff;
