@@ -45,25 +45,6 @@
               </tr>
             </table>
 		</div>
-        <script>
-           	var startButton = document.getElementById( 'startButton' );
-			startButton.addEventListener( 'click', function () {
-				requestOrientationPermission();
-				init();
-				animate();
-
-			}, false );
-
-			function init(){
-				var overlay = document.getElementById( 'overlay' );
-				overlay.remove();
-			}
-
-			function animate() {
-				window.requestAnimationFrame( animate );
-			}
-		</script>
-		
 		<!-- Camera -->
 		<main id="camera">
 
@@ -82,5 +63,24 @@
 		</main>
 		<!-- Reference to your JavaScript file -->
 		<script type="text/javascript" src="Scripts/DeviceCameraControl.js"></script>
+        <script>
+           	var startButton = document.getElementById( 'startButton' );
+			startButton.addEventListener( 'click', function () {
+				requestOrientationPermission();
+				cameraStart();
+				init();
+				animate();
+
+			}, false );
+
+			function init(){
+				var overlay = document.getElementById( 'overlay' );
+				overlay.remove();
+			}
+
+			function animate() {
+				window.requestAnimationFrame( animate );
+			}
+		</script>
 	</body>
 </html>
