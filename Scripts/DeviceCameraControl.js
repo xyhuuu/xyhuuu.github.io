@@ -1,5 +1,5 @@
 // Set constraints for the video stream
-// var constraints = { video: true, audio: true };
+var constraints = { video: true, audio: true };
 
 // Define constants
 const cameraView = document.querySelector("#camera--view"),
@@ -14,21 +14,12 @@ function cameraStart() {
     //     if (result.state == 'granted') {
             // alert('mediaDevices' in navigator);
             // alert('getUserMedia' in navigator.mediaDevices);
-            // if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices){
-                navigator.mediaDevices.enumerateDevices().then((devices) => {
-                    devices = devices.filter((d) => d.kind === 'videoinput');
-                  });
-                 
+            // if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices){ 
                 navigator.mediaDevices
-                    .getUserMedia({
-                        audio: true,
-                        video: {
-                          deviceId: devices[0].deviceId
-                        }
-                      })
+                    .getUserMedia(constraints)
                     .then(function(stream) {
-                        // track = stream.getTracks()[0];
-                        cameraView.srcObject = stream;
+                    // track = stream.getTracks()[0];
+                    cameraView.srcObject = stream;
                 })
                 .catch(function(error) {
                     console.error("Oops", error);
