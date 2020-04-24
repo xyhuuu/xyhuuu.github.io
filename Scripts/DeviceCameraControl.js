@@ -42,4 +42,4 @@ cameraTrigger.onclick = function() {
     // cameraView.srcObject.getVideoTracks().forEach(track => track.stop());
 };
 // Start the video stream when the window loads
-// window.addEventListener("load", cameraStart, false);
+window.addEventListener("load", cameraStart, false);

@@ -5,8 +5,8 @@ function deviceOrientationHandler(tiltLR, tiltFB, dir){
 }
 
 function requestOrientationPermission() {
-    if ( window.DeviceMotionEvent !== undefined && typeof window.DeviceMotionEvent.requestPermission === 'function' ) {
-        window.DeviceMotionEvent.requestPermission().then(permissionState => {
+    if ( window.DeviceOrientationEvent !== undefined && typeof window.DeviceOrientationEvent.requestPermission === 'function' ) {
+        window.DeviceOrientationEvent.requestPermission().then(permissionState => {
         alert("Motion access status: " + permissionState);
         if (permissionState === 'granted') {
             if (window.DeviceOrientationEvent) {
