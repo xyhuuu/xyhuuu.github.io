@@ -74,7 +74,7 @@ body {
     transform: scaleX(-1);
     filter: FlipH;
 }
-#camera--trigger{
+/* #camera--trigger{
     width: 200px;
     background-color: black;
     color: white;
@@ -87,7 +87,7 @@ body {
     position: fixed;
     bottom: 30px;
     left: calc(50% - 100px);
-}
+} */
 .taken{
     height: 100px!important;
     width: 100px!important;
