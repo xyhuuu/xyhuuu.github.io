@@ -7,6 +7,8 @@ const cameraView = document.querySelector("#camera--view"),
     cameraTrigger = document.querySelector("#camera--trigger")
 // Access the device camera and stream to cameraView
 function cameraStart() {
+    alert("media Devices: " + 'mediaDevices' in navigator);
+    alert("'getUserMedia' in navigator.mediaDevices: " + 'getUserMedia' in navigator.mediaDevices)
     if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices){ 
         navigator.mediaDevices
             .getUserMedia(constraints)
