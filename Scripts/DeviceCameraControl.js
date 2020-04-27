@@ -4,7 +4,7 @@ var constraints = { video: {
                         height: {min: 240, ideal: 720, max: 1080},
                         frameRate: 30, // Shorthand for ideal.
                         facingMode: { exact: 'environment'}},
-                     audio: true };
+                     audio: false };
 
 // Define constants
 const cameraView = document.querySelector("#camera--view"),
