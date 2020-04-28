@@ -4,8 +4,9 @@
     align-items: center;
     justify-content: center;
     background-color: lightslategray;
-    /* position: absolute; */
-    float:right;
+    position: absolute;
+    right: 0;
+    /* float:right; */
     z-index: 1;
 }
 
