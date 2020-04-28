@@ -69,7 +69,7 @@ body {
 }
 
 #camera, #camera--view, #camera--sensor, #camera--output{
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 100%;
     object-fit: cover;
