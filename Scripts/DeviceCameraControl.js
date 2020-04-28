@@ -1,7 +1,7 @@
 // Set constraints for the video stream
 var constraints = { video: {
-                        width: {min: 320, ideal: 1280, max: 1920},
-                        height: {min: 240, ideal: 720, max: 1080},
+                        // width: {min: 320, ideal: 1280, max: 1920},
+                        // height: {min: 240, ideal: 720, max: 1080},
                         frameRate: 30, // Shorthand for ideal.
                         facingMode: { exact: 'environment'}},
                      audio: false };
