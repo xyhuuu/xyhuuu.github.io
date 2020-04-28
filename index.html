@@ -25,34 +25,33 @@
 		</div>
 		<br>
         <!-- <button onclick="requestOrientationPermission();">Request Orientation Permission</button> -->
-        <div class="infotable">
-            <!-- <h2>Device Orientation</h2> -->
-            <table>
-              <tr>
-                <td>Event Supported</td>
-                <td id="doEvent"></td>
-              </tr>
-              <tr>
-                <td>Tilt Left/Right [gamma]</td>
-                <td id="doTiltLR"></td>
-              </tr>
-              <tr>
-                <td>Tilt Front/Back [beta]</td>
-                <td id="doTiltFB"></td>
-              </tr>
-              <tr>
-                <td>Direction [alpha]</td>
-                <td id="doDirection"></td>
-              </tr>
-            </table>
-		</div>
+		<!-- Camera -->
+		<main id="camera">
+			<div class="infotable">
+				<!-- <h2>Device Orientation</h2> -->
+				<table>
+				<tr>
+					<td>Event Supported</td>
+					<td id="doEvent"></td>
+				</tr>
+				<tr>
+					<td>Tilt Left/Right [gamma]</td>
+					<td id="doTiltLR"></td>
+				</tr>
+				<tr>
+					<td>Tilt Front/Back [beta]</td>
+					<td id="doTiltFB"></td>
+				</tr>
+				<tr>
+					<td>Direction [alpha]</td>
+					<td id="doDirection"></td>
+				</tr>
+				</table>
+			</div>
 
 		<!-- <h2>capture=camcorder</h2>
 			  <input type="file" accept="video/*;capture=camcorder"></input> -->
 			  
-		<!-- Camera -->
-		<main id="camera">
-
 		    <!-- Camera sensor -->
 		    <canvas id="camera--sensor"></canvas>
 		    
