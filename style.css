@@ -6,6 +6,7 @@
     background-color: lightslategray;
     position: absolute;
     float:right;
+    z-index: 1;
 }
 
 p {
