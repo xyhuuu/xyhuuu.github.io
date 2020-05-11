@@ -11,9 +11,9 @@ function deviceOrientationHandler(tiltLR, tiltFB, dir){
     // logo.style.transform =
     //     "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)";
     logo.style.transform =
-        "rotateZ(" + (e.alpha - 180) + "deg) " +
-        "rotateX(" + e.beta + "deg) " +
-        "rotateY(" + (-e.gamma) + "deg)";
+        "rotateZ(" + (dir- 180) + "deg) " +
+        "rotateX(" + tiltFB + "deg) " +
+        "rotateY(" + (-tiltLR) + "deg)";
 }
 
 function requestOrientationPermission() {
