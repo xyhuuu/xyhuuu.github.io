@@ -10,7 +10,7 @@ function deviceOrientationHandler(tiltLR, tiltFB, dir){
     // logo.style.MozTransform = "rotate(" + tiltLR + "deg)";
     // logo.style.transform =
     //     "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)";
-    elem.style.transform =
+    logo.style.transform =
         "rotateZ(" + (e.alpha - 180) + "deg) " +
         "rotateX(" + e.beta + "deg) " +
         "rotateY(" + (-e.gamma) + "deg)";
