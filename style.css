@@ -12,6 +12,10 @@
     /* top:1; */
 }
 
+#container {
+    position: relative;
+}
+
 .canvas { 
     position: absolute; 
     top: 0; 
