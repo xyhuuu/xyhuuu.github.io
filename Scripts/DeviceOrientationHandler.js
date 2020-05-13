@@ -11,14 +11,7 @@ function deviceOrientationHandler(tiltLR, tiltFB, dir){
     // logo.style.MozTransform = "rotate(" + tiltLR + "deg)";
     // logo.style.transform =
     //     "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)";
-    console.log(logo);
-    console.log("1");
-    console.log(logo.object3D);
-    console.log("11");
-    console.log(logo.object3D.rotation);
-    console.log("111");
-    console.log(logo.object3D.position);
-    console.log("1111");
+
     logo.object3D.transform =
         "rotateZ(" + (dir- 180) + "deg) " +
         // "rotateZ(" + (dir) + "deg) " +
@@ -26,7 +19,9 @@ function deviceOrientationHandler(tiltLR, tiltFB, dir){
         "rotateY(" + (-tiltLR) + "deg)";
         // "rotateX(" + tiltFB + "deg) " +
         // "rotateY(" + (-tiltLR) + "deg)";
-    console.log("11111");
+
+
+
 }
 
 function requestOrientationPermission() {
