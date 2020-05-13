@@ -11,7 +11,9 @@ function deviceOrientationHandler(tiltLR, tiltFB, dir){
     // logo.style.MozTransform = "rotate(" + tiltLR + "deg)";
     // logo.style.transform =
     //     "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)";
-    logo.style.transform =
+    console.log(logo.object3D.rotation);
+    console.log(logo.object3D.position);
+    logo.object3D.transform =
         "rotateZ(" + (dir- 180) + "deg) " +
         // "rotateZ(" + (dir) + "deg) " +
         "rotateX(" + tiltFB + "deg) " +
