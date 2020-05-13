@@ -16,6 +16,10 @@
     position: relative;
 }
 
+#cubecanvas {
+    z-index: 1;
+}
+
 .canvas { 
     position: absolute; 
     top: 0; 
