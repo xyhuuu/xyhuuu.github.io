@@ -18,8 +18,8 @@
 
 #cubecanvas {
     z-index: 1;
-    left: 50%;
-    top:50%
+    left: 5px;
+    top: 100px;
 }
 
 .canvas { 
