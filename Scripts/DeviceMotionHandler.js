@@ -11,27 +11,24 @@ function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotati
         alert("Motion access status: " + permissionState);
         if (permissionState === 'granted') {
             if (window.DeviceMotionEvent) {
-                window.addEventListener('devicemotion', function(eventData) {
-            
-                  document.getElementById("doEventMotion").innerHTML = "DeviceMotion";
-            
-                  var xAcceleration = eventData.accelerationIncludingGravity.x;
-            
-                  var yAcceleration = eventData.accelerationIncludingGravity.y;
-            
-                  var zAcceleration = eventData.accelerationIncludingGravity.z;
-            
-                  var rotationRate = eventData.rotationRate.x;
-                  alert(eventData.rotationRate);
-            
-                  // call our orientation event handler
-                  deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotationRate);
+              document.getElementById("doEventMotion").innerHTML = "DeviceMotion";
+              window.addEventListener('devicemotion', function(eventData) {
+                var xAcceleration = eventData.accelerationIncludingGravity.x;
+          
+                var yAcceleration = eventData.accelerationIncludingGravity.y;
+          
+                var zAcceleration = eventData.accelerationIncludingGravity.z;
+          
+                var rotationRate = eventData.rotationRate.x;
+          
+                // call our motion event handler
+                deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotationRate);
             
                   
               }, false);
             } else {
-                  document.getElementById("doEventMotion").innerHTML = "Not supported."
-              } 
+                document.getElementById("doEventMotion").innerHTML = "Not supported."
+            } 
         }
     }).catch(error => {
         alert(error);
@@ -40,23 +37,22 @@ function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotati
     else
     {
       if (window.DeviceMotionEvent) {
+        console.log("DeviceMotion is supported.");
+        document.getElementById("doEventMotion").innerHTML = "DeviceMotion";
         window.addEventListener('devicemotion', function(eventData) {
-    
-          document.getElementById("doEventMotion").innerHTML = "DeviceMotion";
-    
           var xAcceleration = eventData.accelerationIncludingGravity.x;
-            
+    
           var yAcceleration = eventData.accelerationIncludingGravity.y;
     
           var zAcceleration = eventData.accelerationIncludingGravity.z;
     
           var rotationRate = eventData.rotationRate.x;
-          alert(eventData.rotationRate);
-
-          // call our orientation event handler
+    
+          // call our motion event handler
           deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotationRate);
-          
-      }, false);
-    }
+      
+            
+        }, false);
+      }
     }
   }

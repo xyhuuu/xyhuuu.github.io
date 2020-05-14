@@ -5,7 +5,7 @@
         <title>RoomVer</title>
         <meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<script type="text/javascript" src="Scripts/DeviceOrientationHandler.js"></script>
+		<!-- <script type="text/javascript" src="Scripts/DeviceOrientationHandler.js"></script> -->
 		<script type="text/javascript" src="Scripts/DeviceMotionHandler.js"></script>
 		<!-- <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> -->
 		<!-- <script type="text/javascript" src="Scripts/three.min.js"></script> -->
@@ -41,41 +41,41 @@
 			<div class="infotable">
 				<!-- <h2>Device Orientation</h2> -->
 				<table>
-				<tr>
-					<td>Event Supported</td>
-					<td id="doEvent"></td>
-				</tr>
-				<tr>
-					<td>Tilt Left/Right [gamma]</td>
-					<td id="doTiltLR"></td>
-				</tr>
-				<tr>
-					<td>Tilt Front/Back [beta]</td>
-					<td id="doTiltFB"></td>
-				</tr>
-				<tr>
-					<td>Direction [alpha]</td>
-					<td id="doDirection"></td>
-				</tr>
-				<tr>
-					<td>Event Supported</td>
-					<td id="doEventMotion"></td>
-				</tr>
-				<tr>
-					<td>xAcceleration (m/s^2)</td>
-					<td id="xMotion"></td>
-				</tr>
-				<tr>
-					<td>yAcceleration (m/s^2)</td>
-					<td id="yMotion"></td>
-				</tr>
-				<tr>
-					<td>zAcceleration (m/s^2)</td>
-					<td id="zMotion"></td>
-				</tr>
-				<tr>
-					<td>XRotationRate</td>
-					<td id="rotationRate"></td>
+					<tr>
+						<td>Event Supported</td>
+						<td id="doEvent"></td>
+					</tr>
+					<tr>
+						<td>Tilt Left/Right [gamma]</td>
+						<td id="doTiltLR"></td>
+					</tr>
+					<tr>
+						<td>Tilt Front/Back [beta]</td>
+						<td id="doTiltFB"></td>
+					</tr>
+					<tr>
+						<td>Direction [alpha]</td>
+						<td id="doDirection"></td>
+					</tr>
+					<tr>
+						<td>Event Supported</td>
+						<td id="doEventMotion"></td>
+					</tr>
+					<tr>
+						<td>xAcceleration (m/s^2)</td>
+						<td id="xMotion"></td>
+					</tr>
+					<tr>
+						<td>yAcceleration (m/s^2)</td>
+						<td id="yMotion"></td>
+					</tr>
+					<tr>
+						<td>zAcceleration (m/s^2)</td>
+						<td id="zMotion"></td>
+					</tr>
+					<tr>
+						<td>XRotationRate</td>
+						<td id="rotationRate"></td>
 					</tr>
 				</table>
 			</div>
@@ -108,7 +108,7 @@
         <script>
            	var startButton = document.getElementById( 'startButton' );
 			startButton.addEventListener( 'click', function () {
-				requestOrientationPermission();
+				// requestOrientationPermission();
 				requestMotionPermission();
 				cameraStart();
 				init();

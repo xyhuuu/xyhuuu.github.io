@@ -47,9 +47,9 @@ function requestOrientationPermission() {
                     deviceOrientationHandler(tiltLR, tiltFB, dir);
     
                 }, false);
-                } else {
-                    document.getElementById("doEvent").innerHTML = "Not supported."
-                } 
+            } else {
+                document.getElementById("doEvent").innerHTML = "Not supported."
+            } 
         }
     }).catch(error => {
         alert(error);
@@ -76,6 +76,6 @@ function requestOrientationPermission() {
                 deviceOrientationHandler(tiltLR, tiltFB, dir);
 
             }, false);
-            }
+        }
     }
   }
