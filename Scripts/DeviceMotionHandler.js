@@ -5,7 +5,7 @@ function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration){
   }
 
   function requestMotionPermission() {
-    if ( window.DeviceMotionEvent !== undefined && typeof window.MotionEvent.requestPermission === 'function' ) {
+    if ( window.DeviceMotionEvent !== undefined && typeof window.DeviceMotionEvent.requestPermission === 'function' ) {
         window.DeviceMotionEvent.requestPermission().then(permissionState => {
         alert("Motion access status: " + permissionState);
         if (permissionState === 'granted') {
