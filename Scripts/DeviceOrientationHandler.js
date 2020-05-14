@@ -27,7 +27,7 @@ function deviceOrientationHandler(tiltLR, tiltFB, dir){
 function requestOrientationPermission() {
     if ( window.DeviceOrientationEvent !== undefined && typeof window.DeviceOrientationEvent.requestPermission === 'function' ) {
         window.DeviceOrientationEvent.requestPermission().then(permissionState => {
-        alert("Motion access status: " + permissionState);
+        alert("Orientation access status: " + permissionState);
         if (permissionState === 'granted') {
             if (window.DeviceOrientationEvent) {
                 // console.log("DeviceOrientation is supported.");
