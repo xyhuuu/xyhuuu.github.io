@@ -45,23 +45,31 @@ function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotati
     }
     else
     {
-        if (window.DeviceMotionEvent) {
-            window.addEventListener('devicemotion', function(eventData) {
-        
-              document.getElementById("doEventMotion").innerHTML = "DeviceMotion";
-        
-              var xAcceleration = eventData.accelerationIncludingGravity.x;
-        
-              var yAcceleration = eventData.accelerationIncludingGravity.y;
-        
-              var zAcceleration = eventData.accelerationIncludingGravity.z;
-        
-              // call our orientation event handler
-              deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration);
-        
-              // call selection handler
-              selectionAccelerationHandler(xAcceleration, yAcceleration, zAcceleration);
-          }, false);
-        }
+      if (window.DeviceMotionEvent) {
+        window.addEventListener('devicemotion', function(eventData) {
+    
+          document.getElementById("doEventMotion").innerHTML = "DeviceMotion";
+    
+          // var xAcceleration = eventData.accelerationIncludingGravity.x;
+    
+          var yAcceleration = eventData.accelerationIncludingGravity.y;
+    
+          // var zAcceleration = eventData.accelerationIncludingGravity.z;
+
+          var xAcceleration = eventData.acceleration.x;
+    
+          var yAcceleration = eventData.accelerationIncludingGravity.y;
+    
+          var zAcceleration = eventData.acceleration.z;
+
+          var rotationRate = eventData.rotationRate.x;
+          console.log(eventData.rotationRate);
+    
+          // call our orientation event handler
+          deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotationRate);
+    
+          
+      }, false);
+    }
     }
   }
