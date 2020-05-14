@@ -1,7 +1,8 @@
-function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration){
+function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotationRate){
     document.getElementById("xMotion").innerHTML = Math.round(xAcceleration);
     document.getElementById("yMotion").innerHTML = Math.round(yAcceleration);
     document.getElementById("zMotion").innerHTML = Math.round(zAcceleration);
+    document.getElementById("rotationRate").innerHTML = Math.round(rotationRate);
   }
 
   function requestMotionPermission() {
@@ -14,17 +15,24 @@ function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration){
             
                   document.getElementById("doEventMotion").innerHTML = "DeviceMotion";
             
-                  var xAcceleration = eventData.accelerationIncludingGravity.x;
+                  // var xAcceleration = eventData.accelerationIncludingGravity.x;
             
-                  var yAcceleration = eventData.accelerationIncludingGravity.y;
+                  // var yAcceleration = eventData.accelerationIncludingGravity.y;
             
-                  var zAcceleration = eventData.accelerationIncludingGravity.z;
+                  // var zAcceleration = eventData.accelerationIncludingGravity.z;
+
+                  var xAcceleration = eventData.acceleration.x;
+            
+                  var yAcceleration = eventData.acceleration.y;
+            
+                  var zAcceleration = eventData.acceleration.z;
+
+                  var rotationRate = eventData.rotationRate;
             
                   // call our orientation event handler
-                  deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration);
+                  deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotationRate);
             
-                  // call selection handler
-                  selectionAccelerationHandler(xAcceleration, yAcceleration, zAcceleration);
+                  
               }, false);
             } else {
                   document.getElementById("doEventMotion").innerHTML = "Not supported."
