@@ -15,20 +15,14 @@ function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotati
             
                   document.getElementById("doEventMotion").innerHTML = "DeviceMotion";
             
-                  // var xAcceleration = eventData.accelerationIncludingGravity.x;
+                  var xAcceleration = eventData.accelerationIncludingGravity.x;
             
                   var yAcceleration = eventData.accelerationIncludingGravity.y;
             
-                  // var zAcceleration = eventData.accelerationIncludingGravity.z;
-
-                  var xAcceleration = eventData.acceleration.x;
+                  var zAcceleration = eventData.accelerationIncludingGravity.z;
             
-                  var yAcceleration = eventData.accelerationIncludingGravity.y;
-            
-                  var zAcceleration = eventData.acceleration.z;
-
                   var rotationRate = eventData.rotationRate.x;
-                  console.log(eventData.rotationRate);
+                  alert(eventData.rotationRate);
             
                   // call our orientation event handler
                   deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotationRate);
@@ -50,24 +44,17 @@ function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotati
     
           document.getElementById("doEventMotion").innerHTML = "DeviceMotion";
     
-          // var xAcceleration = eventData.accelerationIncludingGravity.x;
-    
+          var xAcceleration = eventData.accelerationIncludingGravity.x;
+            
           var yAcceleration = eventData.accelerationIncludingGravity.y;
     
-          // var zAcceleration = eventData.accelerationIncludingGravity.z;
-
-          var xAcceleration = eventData.acceleration.x;
+          var zAcceleration = eventData.accelerationIncludingGravity.z;
     
-          var yAcceleration = eventData.accelerationIncludingGravity.y;
-    
-          var zAcceleration = eventData.acceleration.z;
-
           var rotationRate = eventData.rotationRate.x;
-          console.log(eventData.rotationRate);
-    
+          alert(eventData.rotationRate);
+
           // call our orientation event handler
           deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotationRate);
-    
           
       }, false);
     }
