@@ -27,7 +27,8 @@ function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotati
             
                   var zAcceleration = eventData.acceleration.z;
 
-                  var rotationRate = eventData.rotationRate;
+                  var rotationRate = eventData.rotationRate.x;
+                  console.log(eventData.rotationRate);
             
                   // call our orientation event handler
                   deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotationRate);
