@@ -17,13 +17,13 @@ function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotati
             
                   // var xAcceleration = eventData.accelerationIncludingGravity.x;
             
-                  // var yAcceleration = eventData.accelerationIncludingGravity.y;
+                  var yAcceleration = eventData.accelerationIncludingGravity.y;
             
                   // var zAcceleration = eventData.accelerationIncludingGravity.z;
 
                   var xAcceleration = eventData.acceleration.x;
             
-                  var yAcceleration = eventData.acceleration.y;
+                  var yAcceleration = eventData.accelerationIncludingGravity.y;
             
                   var zAcceleration = eventData.acceleration.z;
 
