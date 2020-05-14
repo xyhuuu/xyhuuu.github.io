@@ -2,7 +2,7 @@ function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotati
     document.getElementById("xMotion").innerHTML = Math.round(xAcceleration);
     document.getElementById("yMotion").innerHTML = Math.round(yAcceleration);
     document.getElementById("zMotion").innerHTML = Math.round(zAcceleration);
-    document.getElementById("rotationRate").innerHTML = Math.round(rotationRate);
+    // document.getElementById("rotationRate").innerHTML = Math.round(rotationRate);
   }
 
   function requestMotionPermission() {
@@ -19,10 +19,10 @@ function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotati
           
                 var zAcceleration = eventData.accelerationIncludingGravity.z;
           
-                var rotationRate = eventData.rotationRate.x;
+                // var rotationRate = eventData.rotationRate.x;
           
                 // call our motion event handler
-                deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotationRate);
+                deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration);
             
                   
               }, false);
@@ -46,10 +46,10 @@ function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotati
     
           var zAcceleration = eventData.accelerationIncludingGravity.z;
     
-          var rotationRate = eventData.rotationRate.x;
+          // var rotationRate = eventData.rotationRate.x;
     
           // call our motion event handler
-          deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotationRate);
+          deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration);
       
             
         }, false);
