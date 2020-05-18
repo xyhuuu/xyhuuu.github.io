@@ -1,7 +1,7 @@
 .garden {
     float:left;
     position: relative;
-    width : 25%;
+    width : 50%;
     height: 200px;
     border: 5px solid #CCC;
     border-radius: 10px;
@@ -19,7 +19,7 @@
   .rightgarden {
     float:left;
     position: relative;
-    width : 25%;
+    width : 50%;
     height: 200px;
     border: 5px solid #CCC;
     border-radius: 10px;
