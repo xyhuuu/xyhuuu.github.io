@@ -46,7 +46,7 @@ window.onload = function(){
      var radius = Math.min(width, height) / 2 - margin
  
      // append the svg object to the div called 'my_dataviz'
-     var svg = d3.select(".piegarden")
+     var svgpie = d3.select(".piegarden")
          .append("svg")
          .attr("width", width)
          .attr("height", height)
@@ -72,8 +72,7 @@ window.onload = function(){
          .outerRadius(radius)
  
      // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-     svg
-         .selectAll('mySlices')
+     svgpie.selectAll('mySlices')
          .data(data_ready)
          .enter()
          .append('path')
@@ -86,8 +85,7 @@ window.onload = function(){
          .attr('id', function (d) { return (d.data.key) });
  
      // Now add the annotation. Use the centroid method to get the best coordinates
-     svg
-         .selectAll('mySlices')
+     svgpie.selectAll('mySlices')
          .data(data_ready)
          .enter()
          .append('text')
@@ -95,10 +93,24 @@ window.onload = function(){
          .attr("transform", function (d) { return "translate(" + arcGenerator.centroid(d) + ")"; })
          .style("text-anchor", "middle")
          .style("font-size", 17)
+    
+    // Now add the title
+    svgpie.append('text')
+            .attr('x', 20)
+            .attr('y', 20)
+            .text('rotation mapping')
+            .attr('font-family', 'sans-serif')
+            .attr('font-size', '11px')
+            .attr('fill', 'white');
     // <---------------End of drawing  pie chart to visualise rotation------------------->
 
     var circlexy = d3.select("#" + "xycircle");
     var circlezy = d3.select("#" + "zycircle");
+    var patha = d3.select("#" + "a");
+    var pathb = d3.select("#" + "b");
+    var pathc = d3.select("#" + "c");
+    var pathd = d3.select("#" + "d");
+    var pathall = d3.selectAll('path')
 
     function handleMotion(event){
         var originx = 0;
@@ -129,5 +141,28 @@ window.onload = function(){
 
     }
 
+    function handleDirection(event){
+        var dir = Math.round(event.alpha);
+
+        if (dir >= 0 && dir < 90){
+            pathall.transition().attr('fill','#d6d6d6')
+            pathd.transition().attr('fill', '#81ff73')
+
+        } else if (dir >= 90 && dir < 180){
+            pathall.transition().attr('fill','#d6d6d6')
+            pathc.transition().attr('fill', '#81ff73')
+
+        } else if (dir >= 180 && dir < 270) {
+            pathall.transition().attr('fill','#d6d6d6')
+            pathb.transition().attr('fill', '#81ff73')
+
+        } else {
+            pathall.transition().attr('fill','#d6d6d6')
+            patha.transition().attr('fill', '#81ff73')
+
+        }
+    }
+
     window.addEventListener('devicemotion', handleMotion);
+    window.addEventListener('deviceorientation', handleDirection);
 }
