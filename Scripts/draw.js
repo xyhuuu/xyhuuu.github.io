@@ -40,7 +40,7 @@ window.onload = function(){
                 .duration(500)
                 .ease(d3.easeLinear)
                 .attr("cx", 100 + (xAcc - originx)*20 )
-                .attr("cy", 100 + (Math.abs(yAcc - originy))*20);
+                .attr("cy", 100 - (Math.abs(yAcc - originy))*20);
         Console.log("cx change: " + xAcc - originx);
         Console.log("cy change: " + Math.abs(yAcc - originy));
 
@@ -48,7 +48,7 @@ window.onload = function(){
                 .duration(500)
                 .ease(d3.easeLinear)
                 .attr("cx", 100 + (zAcc - originz)*20)
-                .attr("cy", 100 + (Math.abs(yAcc -y))*20);
+                .attr("cy", 100 - (Math.abs(yAcc - originy))*20);
 
     }
 
