@@ -38,13 +38,13 @@ window.onload = function(){
 
         circlexy.transition()
                 .duration(500)
-                .attr("cx", 100 + xAcc - originx )
-                .attr("cy", 100 + Math.abs(yAcc - originy));
+                .attr("cx", 100 + (xAcc - originx)*10 )
+                .attr("cy", 100 + (Math.abs(yAcc - originy))*10);
 
         circlexy.transition()
                 .duration(500)
-                .attr("cx", 100 + zAcc - originz)
-                .attr("cy", 100 + Math.abs(yAcc -y));
+                .attr("cx", 100 + (zAcc - originz)*10)
+                .attr("cy", 100 + (Math.abs(yAcc -y))*10);
 
     }
 
