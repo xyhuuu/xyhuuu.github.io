@@ -96,8 +96,8 @@ window.onload = function(){
     
     // Now add the title
     svgpie.append('text')
-            .attr('x', 20)
-            .attr('y', 20)
+            .attr('x', 10)
+            .attr('y', 10)
             .text('rotation mapping')
             .attr('font-family', 'sans-serif')
             .attr('font-size', '11px')
