@@ -155,16 +155,34 @@ window.onload = function(){
                     .attr('fill', '#81ff73')
 
         } else if (dir >= 90 && dir < 180){
-            pathall.transition().attr('fill','#d6d6d6')
-            pathc.transition().attr('fill', '#81ff73')
+            pathall.transition()
+                    .duration(500)
+                    .ease(d3.easeLinear)
+                    .attr('fill','#d6d6d6')
+            pathc.transition()
+                    .duration(500)
+                    .ease(d3.easeLinear)
+                    .attr('fill', '#81ff73')
 
         } else if (dir >= 180 && dir < 270) {
-            pathall.transition().attr('fill','#d6d6d6')
-            pathb.transition().attr('fill', '#81ff73')
+            pathall.transition()
+                    .duration(500)
+                    .ease(d3.easeLinear)
+                    .attr('fill','#d6d6d6')
+            pathb.transition()
+                    .duration(500)
+                    .ease(d3.easeLinear)
+                    .attr('fill', '#81ff73')
 
         } else {
-            pathall.transition().attr('fill','#d6d6d6')
-            patha.transition().attr('fill', '#81ff73')
+            pathall.transition()
+                    .duration(500)
+                    .ease(d3.easeLinear)
+                    .attr('fill','#d6d6d6')
+            patha.transition()
+                    .duration(500)
+                    .ease(d3.easeLinear)
+                    .attr('fill', '#81ff73')
 
         }
     }
