@@ -5,6 +5,19 @@ var garden = document.querySelector('.garden');
 var maxX = garden.clientWidth  - ball.clientWidth;
 var maxY = garden.clientHeight - ball.clientHeight;
 
+var svgball = d3.select("." + "garden")
+                  .append("svg")
+                  .attr("width",200)
+                  .attr("height",200);
+
+svgxy.append('text')
+        .attr('x', 20)
+        .attr('y', 20)
+        .text('x y axes orientation mapping')
+        .attr('font-family', 'sans-serif')
+        .attr('font-size', '11px')
+        .attr('fill', 'white');
+
 function handleOrientation(event) {
   var x = event.beta;  // In degree in the range [-180,180]
   var y = event.gamma; // In degree in the range [-90,90]
