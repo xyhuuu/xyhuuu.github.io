@@ -24,12 +24,27 @@ window.onload = function(){
     var circlezy = d3.select("#" + "zycircle");
 
     function handleMotion(event){
+        var originx = 0;
+
+        var originy = 0;
+
+        var originz = -10;
+
         var xAcc = event.accelerationIncludingGravity.x;
 
         var yAcc = event.accelerationIncludingGravity.y;
 
         var zAcc = event.accelerationIncludingGravity.z;
 
+        circlexy.transition()
+                .duration(500)
+                .attr("cx", 100 + xAcc - originx )
+                .attr("cy", 100 + Math.abs(yAcc - originy));
+
+        circlexy.transition()
+                .duration(500)
+                .attr("cx", 100 + zAcc - originz)
+                .attr("cy", 100 + Math.abs(yAcc -y));
 
     }
 
