@@ -17,7 +17,7 @@ window.onload = function(){
             .attr('y', 20)
             .text('x y axes motion mapping')
             .attr('font-family', 'sans-serif')
-            .attr('font-size', '10px')
+            .attr('font-size', '11px')
             .attr('fill', 'white');
 
     svgzy.append('circle')
@@ -33,7 +33,7 @@ window.onload = function(){
             .attr('y', 20)
             .text('z y axes motion mapping')
             .attr('font-family', 'sans-serif')
-            .attr('font-size', '10px')
+            .attr('font-size', '11px')
             .attr('fill', 'white');
 
     var circlexy = d3.select("#" + "xycircle");
