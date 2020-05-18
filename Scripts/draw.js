@@ -11,6 +11,14 @@ window.onload = function(){
             .attr('stroke', 'black')
             .attr('fill', '#69a3b2')
             .attr('id', 'xycircle');
+    
+    svgxy.append('text')
+            .attr('x', 20)
+            .attr('y', 20)
+            .text('x y axes motion mapping')
+            .attr('font-family', 'sans-serif')
+            .attr('font-size', '20px')
+            .attr('fill', 'white');
 
     svgzy.append('circle')
             .attr('cx', 100)
@@ -41,8 +49,8 @@ window.onload = function(){
                 .ease(d3.easeLinear)
                 .attr("cx", 100 + (xAcc - originx)*5 )
                 .attr("cy", 100 - (Math.abs(yAcc - originy))*5);
-        Console.log("cx change: " + xAcc - originx);
-        Console.log("cy change: " + Math.abs(yAcc - originy));
+        // Console.log("cx change: " + xAcc - originx);
+        // Console.log("cy change: " + Math.abs(yAcc - originy));
 
         circlezy.transition()
                 .duration(500)
