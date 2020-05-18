@@ -24,6 +24,15 @@
     border: 5px solid #CCC;
     border-radius: 10px;
   }
+
+  .piegarden {
+    float:left;
+    position: relative;
+    width : 50%;
+    height: 200px;
+    border: 5px solid #CCC;
+    border-radius: 10px;
+  }
   
   .ball {
     position: absolute;
