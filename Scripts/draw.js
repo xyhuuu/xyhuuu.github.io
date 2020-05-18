@@ -145,8 +145,14 @@ window.onload = function(){
         var dir = Math.round(event.alpha);
 
         if (dir >= 0 && dir < 90){
-            pathall.attr('fill','#d6d6d6')
-            pathd.attr('fill', '#81ff73')
+            pathall.transition()
+                    .duration(500)
+                    .ease(d3.easeLinear)
+                    .attr('fill','#d6d6d6')
+            pathd.transition()
+                    .duration(500)
+                    .ease(d3.easeLinear)
+                    .attr('fill', '#81ff73')
 
         } else if (dir >= 90 && dir < 180){
             pathall.transition().attr('fill','#d6d6d6')
