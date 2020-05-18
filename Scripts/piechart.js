@@ -44,6 +44,7 @@ window.onload = function(){
         .attr("stroke", "black")
         .style("stroke-width", "2px")
         .style("opacity", 0.7)
+        .attr('id', function (d) { return (d.data.key) });
 
     // Now add the annotation. Use the centroid method to get the best coordinates
     svg
