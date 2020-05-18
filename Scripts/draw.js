@@ -94,14 +94,14 @@ window.onload = function(){
          .style("text-anchor", "middle")
          .style("font-size", 17)
     
-    // Now add the title
-    svgpie.append('text')
-            .attr('x', 30)
-            .attr('y', 30)
-            .text('rotation mapping')
-            .attr('font-family', 'sans-serif')
-            .attr('font-size', '11px')
-            .attr('fill', 'white');
+    // // Now add the title
+    // svgpie.append('text')
+    //         .attr('x', 30)
+    //         .attr('y', 30)
+    //         .text('rotation mapping')
+    //         .attr('font-family', 'sans-serif')
+    //         .attr('font-size', '11px')
+    //         .attr('fill', 'white');
     // <---------------End of drawing  pie chart to visualise rotation------------------->
 
     var circlexy = d3.select("#" + "xycircle");
