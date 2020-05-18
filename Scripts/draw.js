@@ -57,9 +57,9 @@ window.onload = function(){
      var data = { a: 90, b: 90, c: 90, d: 90}
  
      // set the color scale
-     var color = d3.scaleOrdinal()
-         .domain(data)
-         .range(d3.schemeSet2);
+    //  var color = d3.scaleOrdinal()
+    //      .domain(data)
+    //      .range(d3.schemeSet2);
  
      // Compute the position of each group on the pie:
      var pie = d3.pie()
@@ -78,7 +78,8 @@ window.onload = function(){
          .enter()
          .append('path')
          .attr('d', arcGenerator)
-         .attr('fill', function (d) { return (color(d.data.key)) })
+        //  .attr('fill', function (d) { return (color(d.data.key)) })
+         .attr('fill', '#d6d6d6')
          .attr("stroke", "black")
          .style("stroke-width", "2px")
          .style("opacity", 0.7)
