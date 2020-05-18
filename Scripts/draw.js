@@ -38,13 +38,17 @@ window.onload = function(){
 
         circlexy.transition()
                 .duration(500)
-                .attr("cx", 100 + (xAcc - originx)*10 )
-                .attr("cy", 100 + (Math.abs(yAcc - originy))*10);
+                .ease(d3.easeLinear)
+                .attr("cx", 100 + (xAcc - originx)*20 )
+                .attr("cy", 100 + (Math.abs(yAcc - originy))*20);
+        Console.log("cx change: " + xAcc - originx);
+        Console.log("cy change: " + Math.abs(yAcc - originy));
 
         circlexy.transition()
                 .duration(500)
-                .attr("cx", 100 + (zAcc - originz)*10)
-                .attr("cy", 100 + (Math.abs(yAcc -y))*10);
+                .ease(d3.easeLinear)
+                .attr("cx", 100 + (zAcc - originz)*20)
+                .attr("cy", 100 + (Math.abs(yAcc -y))*20);
 
     }
 
