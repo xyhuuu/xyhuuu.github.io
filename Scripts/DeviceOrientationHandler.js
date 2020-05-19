@@ -57,7 +57,7 @@ function requestOrientationPermission() {
     }
     else
     {
-        // alert("window.DeviceOrientationEvent: " + window.DeviceOrientationEvent);
+        alert("window.DeviceOrientationEvent: " + window.DeviceOrientationEvent);
         if (window.DeviceOrientationEvent) {
             console.log("DeviceOrientation is supported.");
             document.getElementById("doEvent").innerHTML = "DeviceOrientation";
