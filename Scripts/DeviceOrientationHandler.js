@@ -57,8 +57,8 @@ function requestOrientationPermission() {
     }
     else
     {
-        alert("window.DeviceOrientationEvent: " + window.DeviceOrientationEvent);
-        if (window.DeviceOrientationEvent) {
+        // alert("window.DeviceOrientationEvent: " + window.DeviceOrientationEvent);
+        // if (window.DeviceOrientationEvent) {
             console.log("DeviceOrientation is supported.");
             document.getElementById("doEvent").innerHTML = "DeviceOrientation";
             // Listen for the deviceorientation event and handle the raw data
@@ -76,6 +76,6 @@ function requestOrientationPermission() {
                 deviceOrientationHandler(tiltLR, tiltFB, dir);
 
             }, false);
-        }
+        // }
     }
   }

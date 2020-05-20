@@ -41,7 +41,7 @@ function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotati
     }
     else
     {
-      if (window.DeviceMotionEvent) {
+      // if (window.DeviceMotionEvent) {
         console.log("DeviceMotion is supported.");
         document.getElementById("doEventMotion").innerHTML = "DeviceMotion";
         window.addEventListener('devicemotion', function(eventData) {
@@ -58,6 +58,6 @@ function deviceMotionHandler(xAcceleration, yAcceleration, zAcceleration, rotati
       
             
         }, false);
-      }
+      // }
     }
   }
